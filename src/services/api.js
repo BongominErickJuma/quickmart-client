@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/v1/qm",
+  // baseURL: "http://localhost:3000/api/v1/qm",
+  baseURL: "https://quickmart-server.onrender.com/api/v1/qm",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -25,7 +26,8 @@ api.interceptors.response.use(
 
 export const getImageUrl = (relativePath) => {
   if (!relativePath) return "";
-  return `http://localhost:3000/${relativePath}`;
+  // return `http://localhost:3000/${relativePath}`;
+  return `https://quickmart-server.onrender.com/${relativePath}`;
 };
 
 export const authService = {
