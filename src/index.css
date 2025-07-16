@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --forest-green: #638c6d;
+  --pale-lime: #e7fbb4;
+  --sunset-orange: #df6d2d;
+  --burnt-sienna: #c84c05;
+}
+
+.text-forest-green {
+  color: var(--forest-green);
+}
+
+.text-pale-lime {
+  color: var(--pale-lime);
+}
+
+.text-sunset-orange {
+  color: var(--sunset-orange);
+}
+
+.text-burnt-sienna {
+  color: var(--burnt-sienna);
+}
+
+.bg-forest-green {
+  background: var(--forest-green);
+}
+
+.gradient-soft-natural {
+  background: linear-gradient(90deg, #638c6d, #e7fbb4);
+}
+
+.gradient-warm-sunset {
+  background: linear-gradient(135deg, #df6d2d, #c84c05);
+}
+
+.gradient-word {
+  background: linear-gradient(90deg, #df6d2d, #e7fbb4);
+  background-clip: text;
+  color: transparent;
+}
