@@ -40,3 +40,8 @@
   background-clip: text;
   color: transparent;
 }
+
+body {
+  background-color: #f2f2f2;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+}

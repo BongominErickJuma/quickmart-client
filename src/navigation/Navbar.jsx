@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import Number from "../assets/Number";
 import usePerson from "../hooks/usePerson";
 import CartSvg from "../svgs/CartSvg";
-import { authService, getImageUrl } from "../services/api";
+import { authService } from "../services/api";
 
 const Navbar = () => {
   const { user, setUser } = usePerson(); // Ensure setUser is available in usePerson
@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav className="gradient-soft-natural shadow-sm fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="flex justify-between items-center py-4">
           {/* Logo & Brand */}
           <div className="flex items-center space-x-3">
@@ -73,6 +73,12 @@ const Navbar = () => {
             <li>
               <Link to="/" className="text-burnt-sienna text-lg transition-colors">
                 Products
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/my-orders" className="text-burnt-sienna text-lg transition-colors">
+                My Orders
               </Link>
             </li>
 

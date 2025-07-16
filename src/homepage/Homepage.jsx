@@ -42,7 +42,7 @@ const Homepage = () => {
   }, [productCategory]);
 
   return (
-    <div className="px-4 mt-24 py-2">
+    <div className="px-4 mt-10 py-2">
       <>
         <h1 className="text-center uppercase text-forest-green text-2xl my-3">Items in store</h1>
 
