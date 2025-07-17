@@ -75,19 +75,20 @@ const Navbar = () => {
                 Products
               </Link>
             </li>
+            {user && (
+              <li>
+                <Link to="/my-orders" className="text-burnt-sienna text-lg transition-colors">
+                  My Orders
+                </Link>
+              </li>
+            )}
+
             {!user ? (
-              <>
-                <li>
-                  <Link to="/my-orders" className="text-burnt-sienna text-lg transition-colors">
-                    My Orders
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login" className="text-burnt-sienna text-lg transition-colors">
-                    Login
-                  </Link>
-                </li>
-              </>
+              <li>
+                <Link to="/login" className="text-burnt-sienna text-lg transition-colors">
+                  Login
+                </Link>
+              </li>
             ) : (
               <li className="relative" ref={dropdownRef}>
                 <div
