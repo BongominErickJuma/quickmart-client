@@ -9,7 +9,8 @@ import ProfilePage from "./profile/ProfilePage";
 import Footer from "./navigation/Footer.";
 import ForgotPasswordPage from "./verifications/ForgotPasswordPage";
 import PasswordResetPage from "./verifications/PasswordResetPage";
-import Orders from "./orders/Orders";
+import MyOrders from "./orders/MyOrders";
+import OrderDetails from "./orders/OrderDetails";
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<PasswordResetPage />} />
-          <Route path="/my-orders" element={<Orders />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/orders/:orderId" element={<OrderDetails />} />
         </Routes>
       </main>
 

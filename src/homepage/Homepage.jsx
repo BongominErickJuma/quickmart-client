@@ -63,8 +63,22 @@ const Homepage = () => {
           ))}
         </div>
 
-        {isLoading && <p className="text-center text-forest-green my-3">Loading data...</p>}
-        {error && <p className="text-center text-burnt-sienna">{error}</p>}
+        {isLoading && (
+          <div className="min-h-screen bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10 p-6 flex justify-center items-center">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-forest-green mx-auto"></div>
+              <p className="mt-4 text-forest-green">Loading Products...</p>
+            </div>
+          </div>
+        )}
+        {error && (
+          <div className="min-h-screen bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10 p-6 flex justify-center items-center">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center max-w-md">
+              <h2 className="text-xl font-bold text-burnt-sienna mb-2">Error Loading Products</h2>
+              <p className="text-forest-green mb-4">{error.message}</p>
+            </div>
+          </div>
+        )}
       </>
 
       <div className="flex flex-col justify-center items-center">

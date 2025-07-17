@@ -73,4 +73,13 @@ export const orderService = {
   getCheckoutSession: async (items) => {
     return await api.post("/orders/checkout-session", { items });
   },
+
+  getMyOrders: async () => {
+    return await api.get("/orders/my-orders");
+  },
+
+  getOrderById: async (order_id) => {
+    console.log("Order ID", order_id);
+    return await api.get(`/orders/${order_id}`);
+  },
 };
