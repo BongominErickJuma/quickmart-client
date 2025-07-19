@@ -29,7 +29,7 @@ const MyOrders = () => {
     };
 
     fetchMyOrders();
-  }, []);
+  }, [user, isLoadingUser]);
 
   if (isPending) {
     return (
