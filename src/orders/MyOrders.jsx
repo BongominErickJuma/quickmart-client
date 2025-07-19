@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 const MyOrders = () => {
-  const { user } = usePerson();
+  const { user, isLoadingUser } = usePerson();
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
+    if (!user || isLoadingUser) return; // Wait until user is available
+
     setIsPending(true);
 
     const fetchMyOrders = async () => {

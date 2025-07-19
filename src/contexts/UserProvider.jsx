@@ -8,7 +8,7 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -22,7 +22,7 @@ const UserProvider = ({ children }) => {
       } catch (err) {
         setError(err.message || "You are not logged in");
       } finally {
-        setIsLoading(false);
+        setIsLoadingUser(false);
       }
     };
 
@@ -30,7 +30,7 @@ const UserProvider = ({ children }) => {
   }, []); // ← only run on initial render
 
   error && console.log(error);
-  return <UserContext.Provider value={{ user, setUser, isLoading }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ user, setUser, isLoadingUser }}>{children}</UserContext.Provider>;
 };
 
 export { UserContext, UserProvider };
