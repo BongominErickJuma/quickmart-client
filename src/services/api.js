@@ -26,8 +26,13 @@ api.interceptors.response.use(
 
 export const getImageUrl = (relativePath) => {
   if (!relativePath) return "";
-  // return `http://localhost:3000/${relativePath}`;
-  return `https://quickmart-server.onrender.com/${relativePath}`;
+
+  // relativePath = relativePath.startsWith("https") ? relativePath : `http://localhost:3000/${relativePath}`;
+
+  relativePath = relativePath.startsWith("https")
+    ? relativePath
+    : `https://quickmart-server.onrender.com/${relativePath}`;
+  return relativePath;
 };
 
 export const authService = {
