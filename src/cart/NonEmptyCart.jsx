@@ -8,23 +8,23 @@ function NonEmptyCart() {
   const total = cart.reduce((acc, curr) => acc + curr.price * curr.count, 0);
 
   return (
-    <div className="mx-4 my-6 overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left rtl:text-right ">
         <thead className="text-xs uppercase">
           <tr>
             <th scope="col" className="px-16 py-3">
               <span className="sr-only">Image</span>
             </th>
-            <th scope="col" className="px-6 py-3 text-sunset-orange">
+            <th scope="col" className="px-2 py-3 text-sunset-orange">
               Product
             </th>
-            <th scope="col" className="px-6 py-3 text-sunset-orange">
+            <th scope="col" className="px-2 py-3 text-sunset-orange">
               Qty
             </th>
-            <th scope="col" className="px-6 py-3 text-sunset-orange">
+            <th scope="col" className="px-2 py-3 text-sunset-orange">
               Price
             </th>
-            <th scope="col" className="px-6 py-3 text-sunset-orange">
+            <th scope="col" className="px-2 py-3 text-sunset-orange">
               Action
             </th>
           </tr>
@@ -39,14 +39,14 @@ function NonEmptyCart() {
                   alt={item.name}
                 />
               </td>
-              <td className="px-6 py-4 font-semibold text-forest-green">{item.name}</td>
-              <td className="px-6 py-4">
+              <td className="px-2 py-4 font-semibold text-forest-green whitespace-nowrap min-w-[100px]">{item.name}</td>
+              <td className="px-2 py-4">
                 <div className="flex items-center">
                   <span className=" font-bold px-3 text-forest-green">{item.count}</span>
                 </div>
               </td>
-              <td className="px-6 py-4 font-semibold text-forest-green">${item.price.toFixed(2)}</td>
-              <td className="px-6 py-4">
+              <td className="px-2 py-4 font-semibold text-forest-green">${item.price.toFixed(2)}</td>
+              <td className="px-2 py-4">
                 <button
                   onClick={() => handleDeleteFromCart(item)}
                   className="font-medium text-xl cursor-pointer text-forest-green"
@@ -59,17 +59,17 @@ function NonEmptyCart() {
         </tbody>
         <tfoot>
           <tr className="font-semibold">
-            <th scope="row" className="px-6 py-3 text-base text-sunset-orange">
+            <th scope="row" className="px-2 py-3 text-base text-sunset-orange">
               Total
             </th>
-            <td className="px-6 py-3 text-forest-green">Items</td>
-            <td className="px-6 py-3">
+            <td className="px-2 py-3 text-forest-green">Items</td>
+            <td className="px-2 py-3">
               <div className="flex items-center">
                 <span className=" font-bold px-3 text-forest-green">{cart.length}</span>
               </div>
             </td>
-            <td className="px-6 py-3 text-forest-green">${total.toFixed(2)}</td>
-            <td className="px-6 py-3">
+            <td className="px-2 py-3 text-forest-green">${total.toFixed(2)}</td>
+            <td className="px-2 py-3">
               <div className="relative group">
                 <button onClick={handleClearItemsFromCart} className=" cursor-pointer text-forest-green">
                   <ClearSvg />

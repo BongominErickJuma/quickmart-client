@@ -51,7 +51,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-lg mx-auto mt-24 shadow-lg p-6 bg-white rounded-md">
+    <div className="mx-auto mt-24 shadow-lg p-2 bg-white rounded-md">
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <h2 className="text-forest-green uppercase text-center text-2xl md:col-span-2">Please Signup</h2>
 

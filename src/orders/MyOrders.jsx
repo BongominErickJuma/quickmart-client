@@ -60,7 +60,7 @@ const MyOrders = () => {
   }
 
   return (
-    <div className="bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10 p-6">
+    <div className="bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10">
       <div className="mx-auto">
         <h1 className="text-3xl font-bold mb-6 gradient-word">My Orders</h1>
 
@@ -68,22 +68,22 @@ const MyOrders = () => {
           <table className="w-full text-sm text-left rtl:text-right">
             <thead className="text-xs uppercase">
               <tr>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Order ID
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Date
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Items
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Total
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Status
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange">
                   Action
                 </th>
               </tr>
@@ -91,13 +91,13 @@ const MyOrders = () => {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id} className="border-b">
-                  <td className="px-6 py-4 font-semibold text-forest-green">#{order._id.slice(-6).toUpperCase()}</td>
-                  <td className="px-6 py-4 text-forest-green">
+                  <td className="px-2 py-4 font-semibold text-forest-green">#{order._id.slice(-6).toUpperCase()}</td>
+                  <td className="px-2 py-4 text-forest-green whitespace-nowrap min-w-[160px]">
                     {format(new Date(order.createdAt), "MMM dd, yyyy HH:mm")}
                   </td>
-                  <td className="px-6 py-4 text-forest-green">{order.products.length}</td>
-                  <td className="px-6 py-4 font-semibold text-forest-green">${order.totalPrice.toFixed(2)}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-2 py-4 text-forest-green">{order.products.length}</td>
+                  <td className="px-2 py-4 font-semibold text-forest-green">${order.totalPrice.toFixed(2)}</td>
+                  <td className="px-2 py-4">
                     <span
                       className={`px-2 py-1 rounded-full text-xs ${
                         order.paid ? "bg-pale-lime text-forest-green" : "bg-sunset-orange text-white"
@@ -106,10 +106,10 @@ const MyOrders = () => {
                       {order.paid ? "Paid" : "Pending"}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-2 py-4">
                     <Link
                       to={`/orders/${order._id}`}
-                      className="font-medium text-forest-green hover:text-burnt-sienna transition-colors"
+                      className="font-medium text-forest-green hover:text-burnt-sienna transition-colors whitespace-nowrap min-w-[160px]"
                     >
                       View Details
                     </Link>

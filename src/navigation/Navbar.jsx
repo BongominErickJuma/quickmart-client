@@ -71,13 +71,17 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link to="/" className="text-burnt-sienna text-lg transition-colors">
+              <Link to="/" className="text-burnt-sienna text-lg transition-colors" onClick={() => setMenuOpen(false)}>
                 Products
               </Link>
             </li>
             {user && (
               <li>
-                <Link to="/my-orders" className="text-burnt-sienna text-lg transition-colors">
+                <Link
+                  to="/my-orders"
+                  className="text-burnt-sienna text-lg transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
                   My Orders
                 </Link>
               </li>
@@ -85,7 +89,11 @@ const Navbar = () => {
 
             {!user ? (
               <li>
-                <Link to="/login" className="text-burnt-sienna text-lg transition-colors">
+                <Link
+                  to="/login"
+                  className="text-burnt-sienna text-lg transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Login
                 </Link>
               </li>
@@ -106,13 +114,20 @@ const Navbar = () => {
                 {dropdownOpen && (
                   <ul className="absolute right-0 mt-2 w-40 bg-white rounded shadow-md py-2 z-50">
                     <li>
-                      <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setMenuOpen(false)}
+                      >
                         Profile
                       </Link>
                     </li>
                     <li>
                       <button
-                        onClick={handleLogout}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          handleLogout();
+                        }}
                         className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                       >
                         Logout

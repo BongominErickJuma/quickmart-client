@@ -48,13 +48,6 @@ const Cart = () => {
       const { error } = await stripe.redirectToCheckout({
         sessionId: session.data.session.id,
       });
-
-      // if (error) {
-      //   setError(error.message);
-      // } else {
-      //   // Only clear cart if you want to after successful payment
-      //   handleClearItemsFromCart();
-      // }
     } catch (error) {
       setError(error.message || "Something went wrong");
     } finally {

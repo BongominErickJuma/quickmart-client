@@ -29,8 +29,6 @@ const OrderDetails = () => {
     fetchMyOrders();
   }, [orderId]);
 
-  order && console.log(order);
-
   if (isPending) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10 p-6 flex justify-center items-center">
@@ -54,7 +52,7 @@ const OrderDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10 p-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#e7fbb4]/20 to-[#638c6d]/10">
       <div className="mx-auto">
         <div className="mb-6">
           <h1 className="text-3xl font-bold gradient-word mb-2">Order Details</h1>
@@ -82,7 +80,7 @@ const OrderDetails = () => {
                 <th scope="col" className="px-16 py-3">
                   <span className="sr-only">Image</span>
                 </th>
-                <th scope="col" className="px-6 py-3 text-sunset-orange">
+                <th scope="col" className="px-2 py-3 text-sunset-orange ">
                   Product
                 </th>
                 <th scope="col" className="px-6 py-3 text-sunset-orange">
@@ -107,7 +105,7 @@ const OrderDetails = () => {
                         alt={item.product.name}
                       />
                     </td>
-                    <td className="px-6 py-4 font-semibold text-forest-green">
+                    <td className="px-2 py-4 font-semibold text-forest-green whitespace-nowrap min-w-[120px]">
                       {item.product.name}
                       <p className="text-sm font-normal text-gray-600 mt-1">{item.product.description}</p>
                     </td>

@@ -14,6 +14,7 @@ const api = axios.create({
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
+    console.log(error);
     if (error.response) {
       const message = error.response?.data.message || "An Error occured";
       return Promise.reject(new Error(message));
@@ -32,6 +33,7 @@ export const getImageUrl = (relativePath) => {
   relativePath = relativePath.startsWith("https")
     ? relativePath
     : `https://quickmart-server.onrender.com/${relativePath}`;
+
   return relativePath;
 };
 
@@ -84,7 +86,6 @@ export const orderService = {
   },
 
   getOrderById: async (order_id) => {
-    console.log("Order ID", order_id);
     return await api.get(`/orders/${order_id}`);
   },
 };
