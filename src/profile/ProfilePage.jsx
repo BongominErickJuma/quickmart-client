@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { authService, getImageUrl } from "../services/api";
 import usePerson from "../hooks/usePerson";
+import OptimizedImage from "../components/OptimizedImage";
 
 const ProfilePage = () => {
   const { user, setUser } = usePerson();
@@ -188,10 +189,12 @@ const ProfilePage = () => {
               <div className="flex flex-col items-center">
                 <div className="relative mb-6">
                   <div className="relative">
-                    <img
+                    <OptimizedImage
                       src={previewUrl || "/default-profile.png"}
                       alt="Profile"
                       className="w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-medium"
+                      placeholderColor="bg-gradient-to-br from-purple-100 to-indigo-100"
+                      eager={true}
                     />
                     <div className="absolute inset-0 rounded-full bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-200 cursor-pointer" />
                   </div>

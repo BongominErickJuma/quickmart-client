@@ -1,6 +1,7 @@
 import useCart from "../hooks/useCart";
 import { getImageUrl } from "../services/api";
 import ClearSvg from "../svgs/ClearSvg";
+import OptimizedImage from "../components/OptimizedImage";
 
 function NonEmptyCart() {
   const { cart, handleDeleteFromCart, handleClearItemsFromCart } = useCart();
@@ -35,10 +36,12 @@ function NonEmptyCart() {
               <tr key={ind} className="hover:bg-white/5 transition-colors duration-200 animate-slide-in-up" style={{animationDelay: `${ind * 100}ms`}}>
                 <td className="px-6 py-6">
                   <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-medium ring-2 ring-white/10">
-                    <img
+                    <OptimizedImage
                       src={getImageUrl(item.image)}
                       className="w-full h-full object-cover"
                       alt={item.name}
+                      placeholderColor="bg-gradient-to-br from-purple-100 to-indigo-100"
+                      eager={ind < 3}
                     />
                   </div>
                 </td>

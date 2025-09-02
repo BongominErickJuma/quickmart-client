@@ -3,6 +3,7 @@ import AddToCartBtn from "../buttons/AddToCartBtn";
 import IncrementDecrementBtn from "../buttons/IncrementDecrementBtn";
 import useCart from "../hooks/useCart";
 import { getImageUrl } from "../services/api";
+import OptimizedImage from "../components/OptimizedImage";
 const Products = ({ product }) => {
   const { cart } = useCart();
   const targetCartItemIndex = cart.findIndex((cart) => cart.name === product.name);
@@ -12,13 +13,14 @@ const Products = ({ product }) => {
 
   return (
     <div className="group w-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-purple-100 hover:border-purple-300">
-      <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-purple-50 to-indigo-50">
-        <img 
+      <div className="relative overflow-hidden aspect-square">
+        <OptimizedImage 
           src={getImageUrl(product.image)} 
           alt={product.name} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          placeholderColor="bg-gradient-to-br from-purple-50 to-indigo-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         
         {/* Price badge */}
         {product.originalPrice && product.originalPrice > product.price && (

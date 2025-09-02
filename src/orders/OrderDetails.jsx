@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { orderService } from "../services/api";
 import { getImageUrl } from "../services/api";
+import OptimizedImage from "../components/OptimizedImage";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
@@ -133,10 +134,12 @@ const OrderDetails = () => {
                     <tr key={item._id} className="hover:bg-white/5 transition-colors duration-200" style={{animationDelay: `${index * 100}ms`}}>
                       <td className="px-6 py-6">
                         <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-medium ring-2 ring-white/10">
-                          <img
+                          <OptimizedImage
                             src={getImageUrl(item.product.image)}
                             className="w-full h-full object-cover"
                             alt={item.product.name}
+                            placeholderColor="bg-gradient-to-br from-purple-100 to-indigo-100"
+                            eager={index < 3}
                           />
                         </div>
                       </td>
