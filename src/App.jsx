@@ -11,28 +11,31 @@ import ForgotPasswordPage from "./verifications/ForgotPasswordPage";
 import PasswordResetPage from "./verifications/PasswordResetPage";
 import MyOrders from "./orders/MyOrders";
 import OrderDetails from "./orders/OrderDetails";
+import SearchProvider from "./contexts/SearchProvider";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
+    <SearchProvider>
+      <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 via-white to-indigo-50">
+        <Navbar />
 
-      <main className="flex-grow pt-20 pb-8 px-4">
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password" element={<PasswordResetPage />} />
-          <Route path="/my-orders" element={<MyOrders />} />
-          <Route path="/orders/:orderId" element={<OrderDetails />} />
-        </Routes>
-      </main>
+        <main className="flex-grow pt-24">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password" element={<PasswordResetPage />} />
+            <Route path="/my-orders" element={<MyOrders />} />
+            <Route path="/orders/:orderId" element={<OrderDetails />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </SearchProvider>
   );
 };
 

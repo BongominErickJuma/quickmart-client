@@ -6,9 +6,9 @@ function IncrementDecrementBtn({ item, count }) {
   const { handleAddToCart, handleSubtractToCart } = useCart();
 
   return (
-    <article className="roundedflex items-center">
+    <div className="flex items-center bg-gray-50 rounded-xl p-1 border border-gray-200">
       <button
-        className="p-2 gradient-warm-sunset rounded text-pale-lime cursor-pointer"
+        className="w-8 h-8 flex items-center justify-center bg-surface rounded-lg shadow-soft hover:bg-red-50 hover:text-red-600 transition-all duration-200 border border-gray-200"
         onClick={(e) => {
           e.preventDefault();
           handleSubtractToCart(item);
@@ -16,9 +16,9 @@ function IncrementDecrementBtn({ item, count }) {
       >
         <MinusSvg />
       </button>
-      <span className="px-4 text-lg text-pale-lime">{count}</span>
+      <span className="px-4 py-1 text-lg font-semibold text-primary min-w-[3rem] text-center">{count}</span>
       <button
-        className="p-2 gradient-warm-sunset rounded text-pale-lime cursor-pointer"
+        className="w-8 h-8 flex items-center justify-center bg-surface rounded-lg shadow-soft hover:bg-green-50 hover:text-green-600 transition-all duration-200 border border-gray-200"
         onClick={(e) => {
           e.preventDefault();
           handleAddToCart(item);
@@ -26,7 +26,7 @@ function IncrementDecrementBtn({ item, count }) {
       >
         <PlusSvg />
       </button>
-    </article>
+    </div>
   );
 }
 

@@ -3,10 +3,8 @@ import React from "react";
 const CartSvg = () => {
   return (
     <svg
-      className="text-sunset-orange"
+      className="text-white w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -14,10 +12,7 @@ const CartSvg = () => {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M6 6h14l-1.5 9H7.5L6 6Z" />
-      <circle cx="9" cy="20" r="1" />
-      <circle cx="18" cy="20" r="1" />
-      <path d="M9 9h4l-1 4h3l-2 5" />
+      <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 17a2 2 0 100 4 2 2 0 000-4zM9 17a2 2 0 11-4 0 2 2 0 014 0z" />
     </svg>
   );
 };

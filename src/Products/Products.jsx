@@ -11,14 +11,47 @@ const Products = ({ product }) => {
   const count = targetCartItem?.count || 0;
 
   return (
-    <div className="w-full rounded-lg shadow-sm bg-forest-green">
-      <img src={getImageUrl(product.image)} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
-      <div className="px-5 pb-5">
-        <h5 className="text-2xl text-pale-lime">{product.name}</h5>
-        <p className="text-pale-lime my-4">{product.description}</p>
-        <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold gradient-word">${product.price}</span>
-          {count > 0 ? <IncrementDecrementBtn item={product} count={count} /> : <AddToCartBtn product={product} />}
+    <div className="group w-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-purple-100 hover:border-purple-300">
+      <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-purple-50 to-indigo-50">
+        <img 
+          src={getImageUrl(product.image)} 
+          alt={product.name} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
+        {/* Price badge */}
+        {product.originalPrice && product.originalPrice > product.price && (
+          <div className="absolute top-3 right-3">
+            <span className="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+              -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+            </span>
+          </div>
+        )}
+      </div>
+      
+      <div className="p-4">
+        <h5 className="text-lg font-semibold text-primary mb-1 line-clamp-1">{product.name}</h5>
+        <p className="text-secondary text-sm mb-3 line-clamp-2">{product.description}</p>
+        
+        <div className="space-y-3">
+          {/* Price Section */}
+          <div className="flex items-baseline gap-2">
+            <span className="text-xl font-bold text-primary">${product.price}</span>
+            {product.originalPrice && product.originalPrice > product.price && (
+              <span className="text-sm text-secondary line-through">${product.originalPrice}</span>
+            )}
+          </div>
+          
+          {/* Button Section */}
+          {count > 0 ? (
+            <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2">
+              <span className="text-sm font-medium text-primary">Quantity:</span>
+              <IncrementDecrementBtn item={product} count={count} />
+            </div>
+          ) : (
+            <AddToCartBtn product={product} />
+          )}
         </div>
       </div>
     </div>
